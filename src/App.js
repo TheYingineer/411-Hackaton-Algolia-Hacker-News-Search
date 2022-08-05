@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState, useEffect } from "react";
 
 function App() {
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    fetch("http://hn.algolia.com/api/v1/search?tags=front_page")
+      .then((res) => res.json())
+      .then((data) => {
+        setNews(data.hits);
+      });
+  }, []);
+
+  function filteredSearch() {
+    setNews(
+      news.filter((element) => {
+        if (element.title.includes("Social")) {
+          return element;
+        }
+      })
+    );
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={filteredSearch}>search</button>
+      <ol>
+        {news.map((article, index) => {
+          return (
+            <li key={article.objectID + index}>
+              <h2>
+                <div className="title">{article.title}</div>
+                <div className="url">({article.url})</div>
+              </h2>
+              <p>
+                {article.points} points | {article.author} |{article.created_at}{" "}
+                | {article.num_comments} comments
+              </p>
+            </li>
+          );
+        })}
+      </ol>
     </div>
   );
 }
