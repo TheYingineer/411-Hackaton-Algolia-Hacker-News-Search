@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import SearchBar from "./Components/SearchBar";
 
 function App() {
   const [news, setNews] = useState([]);
@@ -24,7 +25,10 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={filteredSearch}>search</button>
+      <header>
+        <SearchBar placeholder="Search stories by title, url, or author" />
+      </header>
+      {/* <button onClick={filteredSearch}>search</button> */}
       <ol>
         {news.map((article, index) => {
           return (
