@@ -15,7 +15,7 @@ function App() {
   function filteredSearch() {
     setNews(
       news.filter((element) => {
-        if (element.title.includes("Social")) {
+        if (element.title.includes("Twitter")) {
           return element;
         }
       })
