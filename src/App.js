@@ -1,9 +1,12 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import SearchBar from "./Components/SearchBar";
+import List from "./Components/List";
 
 function App() {
   const [news, setNews] = useState([]);
+  const [inputText, setInputText] = useState("");
+  // const [filtered, setfiltered] = useState([]);
 
   useEffect(() => {
     fetch("http://hn.algolia.com/api/v1/search?tags=front_page")
@@ -13,38 +16,20 @@ function App() {
       });
   }, []);
 
-  function filteredSearch() {
-    setNews(
-      news.filter((element) => {
-        if (element.title.includes("Social")) {
-          return element;
-        }
-      })
-    );
-  }
+  const handleInput = (e) => {
+    let lower = e.target.value.toLowerCase();
+    setInputText(lower);
+  };
 
   return (
     <div className="App">
       <header>
-        <SearchBar placeholder="Search stories by title, url, or author" />
+        <SearchBar
+          handleChange={handleInput}
+          placeholder="Search stories by title, url, or author"
+        />
       </header>
-      {/* <button onClick={filteredSearch}>search</button> */}
-      <ol>
-        {news.map((article, index) => {
-          return (
-            <li key={article.objectID + index}>
-              <h2>
-                <div className="title">{article.title}</div>
-                <div className="url">({article.url})</div>
-              </h2>
-              <p>
-                {article.points} points | {article.author} |{article.created_at}{" "}
-                | {article.num_comments} comments
-              </p>
-            </li>
-          );
-        })}
-      </ol>
+      <List news={news} inputText={inputText} />
     </div>
   );
 }
