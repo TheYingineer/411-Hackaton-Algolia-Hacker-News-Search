@@ -1,11 +1,15 @@
 import React from "react";
 import "./SearchBar.css";
 
-function SearchBar({ placeholder, data }) {
+function SearchBar({ handleChange, placeholder, data }) {
   return (
     <div ClassName="Search">
       <div ClassName="searchInputs">
-        <input type="text" placeholder={placeholder}></input>
+        <input
+          onChange={handleChange}
+          type="text"
+          placeholder={placeholder}
+        ></input>
         <div ClassName="searchIcon"></div>
       </div>
       {/* <div ClassName="SortByBar">

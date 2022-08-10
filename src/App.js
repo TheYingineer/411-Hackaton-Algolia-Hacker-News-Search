@@ -1,9 +1,12 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import SearchBar from "./Components/SearchBar";
+import List from "./Components/List";
 
 function App() {
   const [news, setNews] = useState([]);
+  const [inputText, setInputText] = useState("");
+  // const [filtered, setfiltered] = useState([]);
 
   useEffect(() => {
     fetch("http://hn.algolia.com/api/v1/search?tags=front_page")
@@ -13,20 +16,16 @@ function App() {
       });
   }, []);
 
-  function filteredSearch() {
-    setNews(
-      news.filter((element) => {
-        if (element.title.includes("Social")) {
-          return element;
-        }
-      })
-    );
-  }
+  const handleInput = (e) => {
+    let lower = e.target.value.toLowerCase();
+    setInputText(lower);
+  };
 
   return (
     <div className="App">
       <div className="mainContainer">
       <header>
+
         <img src="https://hn.algolia.com/packs/media/images/logo-hn-search-a822432b.png" />
         <h2>Search Hacker News</h2>
         <SearchBar placeholder="Search stories by title, url, or author" />
@@ -64,6 +63,14 @@ function App() {
         })}
       </ol>
       </div>
+
+        <SearchBar
+          handleChange={handleInput}
+          placeholder="Search stories by title, url, or author"
+        />
+      </header>
+      <List news={news} inputText={inputText} />
+
     </div>
   );
 }
