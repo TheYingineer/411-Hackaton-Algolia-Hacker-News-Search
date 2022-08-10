@@ -15,7 +15,9 @@ function List({ news, inputText }) {
         <li key={article.objectID + index}>
           <h2>
             <div className="title">{article.title}</div>
-            <div className="url">({article.url})</div>
+            <a className="url" href={article.url}>
+              ({article.url})
+            </a>
           </h2>
           <p>
             {article.points} points | {article.author} |{article.created_at} |{" "}
