@@ -25,8 +25,8 @@ function App() {
     fetch("http://hn.algolia.com/api/v1/search?tags=front_page") //api address
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.hits);
         setNews(data.hits);
+        console.log(data.hits);
       });
   }, []);
 
@@ -77,28 +77,6 @@ function App() {
 
 
           <h2>Settings</h2>
-          {/* <button onClick={filteredSearch}>search</button> */}
-          {/* <ol>
-            {news.map((article, index) => {
-              return (
-                <li key={article.objectID + index}>
-                  <h2>
-                    <div className="title">{article.title}</div>
-                    <div className="url">({article.url})</div>
-                  </h2>
-                  <p>
-                    {article.points} points | {article.author} |
-                    {article.created_at} | {article.num_comments} comments
-                  </p>
-                </li>
-              );
-            })}
-          </ol> */}
-
-          {/* <SearchBar
-            handleChange={handleInput}
-            placeholder="Search stories by title, url, or author"
-          /> */}
         </header>
         <List class="ListLi" news={news} inputText={inputText} />
       </div>
