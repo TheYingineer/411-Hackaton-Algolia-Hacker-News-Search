@@ -6,10 +6,23 @@ import List from "./Components/List";
 function App() {
   const [news, setNews] = useState([]);
   const [inputText, setInputText] = useState("");
+  
   // const [filtered, setfiltered] = useState([]);
+  // const authorCardTemplate = document.querySelector("[data-author-template]")
+  // fetch("http://hn.algolia.com/api/v1/search?tags=front_page").then(res => res.json()).then(data => {
+  //   data.forEach(author => {
+  //     const card = authorCardTemplate.textContent.cloneNode(true).children[0]
+  //     const author = card.querySelector("[data-Author]")
+  //     const title = card.querySelector("[data-Title]")
+  //     const url = card.querySelector("[data-Url]")
+
+  //     console.log(author)
+  //   })
+  // }) //api address
+
 
   useEffect(() => {
-    fetch("http://hn.algolia.com/api/v1/search?tags=front_page")
+    fetch("http://hn.algolia.com/api/v1/search?tags=front_page") //api address
       .then((res) => res.json())
       .then((data) => {
         console.log(data.hits);
@@ -23,12 +36,12 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className={`App`}>
       <div className="mainContainer">
         <header>
-          <img src="https://hn.algolia.com/packs/media/images/logo-hn-search-a822432b.png" />
+          <img class="Hpic" src="https://hn.algolia.com/packs/media/images/logo-hn-search-a822432b.png" />
           <h2>Search Hacker News</h2>
-          <SearchBar
+          {/* <SearchBar
             handleChange={handleInput}
             placeholder="Search stories by title, url, or author"
           />
@@ -45,7 +58,24 @@ function App() {
           >
             <circle cx="12" cy="12" r="3"></circle>
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-          </svg>
+          </svg> */}
+
+          {/* Ying's Search Bar */}
+          <div className="searchWrapper">
+            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" />
+          </div>
+
+          <div className="user-cards"></div>
+
+          <template data-author-template>
+            <div className="card">
+              <div className="Title" data-Title>Title</div>
+              <div className="Url" data-Url>Url</div>
+              <div className="Author" data-Author>Author</div>
+            </div>
+          </template>
+
+
           <h2>Settings</h2>
           {/* <button onClick={filteredSearch}>search</button> */}
           {/* <ol>
@@ -70,7 +100,7 @@ function App() {
             placeholder="Search stories by title, url, or author"
           /> */}
         </header>
-        <List news={news} inputText={inputText} />
+        <List class="ListLi" news={news} inputText={inputText} />
       </div>
     </div>
   );
