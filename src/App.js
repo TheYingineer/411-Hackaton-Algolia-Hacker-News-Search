@@ -2,23 +2,29 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import SearchBar from "./Components/SearchBar";
 import List from "./Components/List";
+// import "../src/SettingGear.jpg"
+// import Moment from 'react-moment';
 
 function App() {
   const [news, setNews] = useState([]);
   const [inputText, setInputText] = useState("");
-  
+
   // const [filtered, setfiltered] = useState([]);
-  // const authorCardTemplate = document.querySelector("[data-author-template]")
+
+  // Ying's in progress continue of the searchBar in JS format
+
+  // const authorCardTemplate = document.querySelector("[data-author-template]");
   // fetch("http://hn.algolia.com/api/v1/search?tags=front_page").then(res => res.json()).then(data => {
   //   data.forEach(author => {
   //     const card = authorCardTemplate.textContent.cloneNode(true).children[0]
-  //     const author = card.querySelector("[data-Author]")
+  //     const author = card.querySelector("[Author]")
   //     const title = card.querySelector("[data-Title]")
   //     const url = card.querySelector("[data-Url]")
 
   //     console.log(author)
   //   })
-  // }) //api address
+
+  //End of Ying's progress
 
 
   useEffect(() => {
@@ -39,8 +45,11 @@ function App() {
     <div className={`App`}>
       <div className="mainContainer">
         <header>
-          <img class="Hpic" src="https://hn.algolia.com/packs/media/images/logo-hn-search-a822432b.png" />
-          <h2>Search Hacker News</h2>
+          <img class="Hpic" src="https://hn.algolia.com/packs/media/images/logo-hn-search-a822432b.png" alt="Hpic" />
+          <div class="SearchHackerNews">Search Hacker News</div>
+          {/* <h2>Search Hacker News</h2> */}
+
+          {/* Kailand's SearchBar */}
           {/* <SearchBar
             handleChange={handleInput}
             placeholder="Search stories by title, url, or author"
@@ -60,6 +69,9 @@ function App() {
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
           </svg> */}
 
+          {/* End of Kaitland's SearchBar */}
+
+
           {/* Ying's Search Bar */}
           <div className="searchWrapper">
             <input type="Search" id="search" placeholder="Search stories by title, URL, or author" />
@@ -69,18 +81,138 @@ function App() {
 
           <template data-author-template>
             <div className="card">
-              <div className="Title" data-Title>Title</div>
-              <div className="Url" data-Url>Url</div>
               <div className="Author" data-Author>Author</div>
             </div>
           </template>
 
+          <template data-Title-template>
+            <div className="card">
+              <div className="Title" data-Title>Title</div>
+            </div>
+          </template>
 
-          <h2>Settings</h2>
+          <template data-Url-template>
+            <div className="card">
+              <div className="Url" data-Url>Url</div>
+            </div>
+          </template>
+
+          {/* End of Ying's Search Bar ---NOT DONE YET!! NEED TO COME BACK AND FINISH IT */}
+
+
+          {/* <h2>Settings</h2> */}
+
+          {/* Setting Tab */}
+          <div class="settings">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Settings</span>
+          </div> 
+          {/* End of Setting Tab */}
+
+
         </header>
+        {/* Ying's dropdown menu --STILL IN PROGRESS*/}
+        <div class="dropDownMenu">
+          <p>Search </p>
+
+          <button onclick="myFunction()" class="dropbtn">Stories</button>
+
+          <p>by </p>
+          <button onclick="myFunction()" class="dropbtn">Popularity</button>
+
+          <p>for</p>
+          <button onclick="myFunction()" class="dropbtn">All Time</button>
+
+          </div>
+          {/* End of Ying's Dropdown Menu */}
+
         <List class="ListLi" news={news} inputText={inputText} />
+
+        {/* Ying's page's search */}
+        <ul class="pageTab">
+
+          <li class="pageItem">
+            <form>
+              <button type="sumbit" formaction="https://hn.algolia.com/?dateRange=all&page=0&prefix=true&query=&sort=byPopularity&type=story">1</button>
+            </form>
+          </li>
+
+          <li class="pageItem">
+            <form>
+              <button type="submit" formaction="https://hn.algolia.com/?dateRange=all&page=1&prefix=true&query=&sort=byPopularity&type=story">2</button>
+            </form>
+          </li>
+
+          <li class="pageItem">
+            <form>
+              <button type="submit" formaction="https://hn.algolia.com/?dateRange=all&page=2&prefix=true&query=&sort=byPopularity&type=story" type="button">3</button>
+            </form>
+          </li>
+
+          <li class="pageItem">
+            <form>
+              <button type="submit" formaction="https://hn.algolia.com/?dateRange=all&page=3&prefix=true&query=&sort=byPopularity&type=story" type="button">4</button>
+            </form>
+          </li>
+
+          <li class="pageItem">
+            <form>
+              <button type="submit" formaction="https://hn.algolia.com/?dateRange=all&page=4&prefix=true&query=&sort=byPopularity&type=story'" type="button">5</button>
+            </form>
+          </li>
+          
+          <li class="pageItem">
+            <form>
+            <button type="submit" formaction="https://hn.algolia.com/?dateRange=all&page=5&prefix=true&query=&sort=byPopularity&type=story'" type="button">6</button>
+            </form>
+          </li>
+          
+          <li class="pageItem">
+          <form>
+            <button onclick="https://hn.algolia.com/?dateRange=all&page=6&prefix=true&query=&sort=byPopularity&type=story">>></button>
+          </form>
+          </li>
+        </ul>
+
+        {/* End of Page search */}
+        
+        
       </div>
+      <footer>
+          
+          <ul class = "footer_ul">
+          <li><a href="https://hn.algolia.com/about">About</a>
+          </li>
+          <li>•</li>
+
+          <li>
+            <a href="https://hn.algolia.com/settings">Setting</a>
+          </li>
+          <li>•</li>
+          <li>
+            <a href="https://hn.algolia.com/help">Help</a>
+          </li>
+          <li>•</li>
+          <li>
+            <a href="https://hn.algolia.com/api">API Documentation</a>
+          </li>
+          <li>•</li>
+          <li>
+            <a href="https://news.ycombinator.com/">Hacker News</a>
+          </li>
+          <li>•</li>
+          <li>
+            <a href="https://github.com/algolia/hn-search">Fork/Contribute</a>
+          </li>
+          <li>•</li>
+          <li>
+            <a href="https://hn.algolia.com/cool_apps">Cool Apps</a>
+          </li>
+        </ul>
+      </footer>
+
     </div>
+    
   );
 }
 
