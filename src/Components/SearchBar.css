@@ -37,7 +37,8 @@ input {
   height: 26px;
   margin: 5px;
 }
-/* 
-.SortByBar {
- 
-} */
+
+div.searchFilterContainer {
+  display: flex;
+  align-items: space-around;
+}
