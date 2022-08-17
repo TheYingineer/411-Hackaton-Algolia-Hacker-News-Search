@@ -76,8 +76,9 @@ function App() {
 
 
           {/* Ying's Search Bar */}
+
           <div className="searchWrapper">
-            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" />
+            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" handleChange={handleInput} />
           </div>
 
           <div className="user-cards"></div>
@@ -167,51 +168,94 @@ function App() {
 
 
         {/* Ying's dropdown menu --STILL IN PROGRESS*/}
-        <div class="dropDownMenu">
-          <p>Search </p>
+        <div class="dropDownMenuDesktop">
+          <div class="dropDownMenu">
+            <div class="dropDownMenuWord">Search</div>
 
-          <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Stories ^</button>
-            <div id="myDropdown" class="dropdown-content">
-              <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All</a>
-              <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=story">Stories</a>
-              <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=comment">Comments</a>
+            <div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">Stories ^</button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All</a>
+                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=story">Stories</a>
+                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=comment">Comments</a>
+              </div>
+            </div>
+
+            <div class="dropDownMenuWord">by</div>
+            <div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">Polularity</a>
+                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byDate&type=comment">Date</a>
+              </div>
+            </div>
+
+            <div class="dropDownMenuWord">for</div>
+            <div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">All time</button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All time</a>
+                <a href="https://hn.algolia.com/?dateRange=last24h&page=0&prefix=false&query=&sort=byPopularity&type=all">Last 24hr</a>
+                <a href="https://hn.algolia.com/?dateRange=pastWeek&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Week</a>
+                <a href="https://hn.algolia.com/?dateRange=pastMonth&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Month</a>
+                <a href="https://hn.algolia.com/?dateRange=pastYear&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Year</a>
+                <a href="">Custom Range</a>
+              </div>
             </div>
           </div>
+          <div class="searchResult">29,591,950 results (0.005 seconds)</div>
+        </div>
+        {/* End of Ying's Dropdown Menu ****NEED TO FIX IT */}
 
-          <p>by </p>
-          <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-            <div id="myDropdown" class="dropdown-content">
+        {/* Ying's Dropdown menu Mobile */}
+        <div class="dropDownMenuMobile">
+          <div class="dropDownMenu">
+            <p>Search </p>
 
-              <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">Polularity</a>
-
-              <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byDate&type=comment">Date</a>
-
+            <div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">Stories ^</button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All</a>
+                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=story">Stories</a>
+                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=comment">Comments</a>
+              </div>
             </div>
-          </div>
 
-          <p>for</p>
-          <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">All time</button>
-            <div id="myDropdown" class="dropdown-content">
+            <p>by </p>
+            <div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+              <div id="myDropdown" class="dropdown-content">
 
-              <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All time</a>
+                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">Polularity</a>
 
-              <a href="https://hn.algolia.com/?dateRange=last24h&page=0&prefix=false&query=&sort=byPopularity&type=all">Last 24hr</a>
+                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byDate&type=comment">Date</a>
 
-              <a href="https://hn.algolia.com/?dateRange=pastWeek&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Week</a>
+              </div>
+            </div>
 
-              <a href="https://hn.algolia.com/?dateRange=pastMonth&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Month</a>
+            <p>for</p>
+            <div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">All time</button>
+              <div id="myDropdown" class="dropdown-content">
 
-              <a href="https://hn.algolia.com/?dateRange=pastYear&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Year</a>
+                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All time</a>
 
-              <a href="">Custom Range</a>
+                <a href="https://hn.algolia.com/?dateRange=last24h&page=0&prefix=false&query=&sort=byPopularity&type=all">Last 24hr</a>
 
+                <a href="https://hn.algolia.com/?dateRange=pastWeek&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Week</a>
+
+                <a href="https://hn.algolia.com/?dateRange=pastMonth&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Month</a>
+
+                <a href="https://hn.algolia.com/?dateRange=pastYear&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Year</a>
+
+                <a href="">Custom Range</a>
+
+              </div>
             </div>
           </div>
         </div>
-        {/* End of Ying's Dropdown Menu ****NEED TO FIX IT */}
+        {/* End of Ying's Dropdown Menu Mobile ****NEED TO FIX IT */}
+
 
         <List class="ListLi" news={news} inputText={inputText} />
 

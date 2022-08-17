@@ -52,7 +52,7 @@
 
   .SearchHackerNews {
     display: block;
-    font-size: 18px;
+    font-size: 15px;
     font-style: normal;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 170px;
@@ -62,6 +62,8 @@
     /* margin-right: 0%; */
   }
 
+
+  /* searchbar */
   .searchWrapper {
     display: flex;
     flex-direction: row;
@@ -80,6 +82,9 @@
     /* border: 5px solid red; */
     justify-content: space-around;
   }
+
+  /* end of search bar */
+
   .settingsDesktop {
     display: flex;
     flex-direction: row;
@@ -118,13 +123,21 @@
     padding: 5px;
   }
 
-  .dropDownMenu {
+  .dropDownMenuDesktop {
     display: flex;
-    font-weight: bold;
     flex-direction: row;
     width: 100%;
-    height: fit-content;
-    /* border: 5px solid red; */
+    /* height: fit-content; */
+    border: 5px solid red;
+  }
+
+  .dropDownMenuMobile {
+    display: none;
+  }
+  .dropDwonMenu {
+    display: flex;
+    flex-direction: row;
+    border: 5px blueviolet solid;
   }
 }
 /* End of desktop view */
@@ -243,7 +256,7 @@
     padding: 5px;
   }
 
-  .dropDownMenu {
+  .dropDownMenuMobile {
     display: flex;
     font-weight: bold;
     flex-direction: row;
@@ -252,6 +265,8 @@
     /* border: 5px solid red; */
   }
 }
+
+/* end of Mobile View */
 
 input {
   font-size: 1 rem;
