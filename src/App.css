@@ -1,5 +1,342 @@
-
-h2{
-  font-size: medium;
-  display: flex;
+* {
+  box-sizing: border-box;
 }
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  border: 5px green solid;
+}
+
+/* desktop view */
+@media (min-width: 700px) {
+  .headerDesktopView {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    /* justify-content: center; */
+    /* justify-items: center; */
+
+    position: relative;
+    background-color: FF742B;
+    border: 5px yellowgreen solid;
+    padding: 4px;
+  }
+
+  .headerMobileView {
+    display: none;
+  }
+
+  .Hpic {
+    padding: 0;
+    /* height: ; */
+    width: 42px;
+    /* border: green solid 5px; */
+    /* margin: 20px; */
+  }
+  h2 {
+    display: flex;
+    font-size: medium;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    border: 5px black solid;
+    margin: 0;
+    align-content: center;
+    padding: 5px;
+  }
+
+  .SearchHackerNews {
+    display: block;
+    font-size: 15px;
+    font-style: normal;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 170px;
+    height: fit-content;
+    border: 5px purple solid;
+    /* margin-right: 5rem; */
+    /* margin-right: 0%; */
+  }
+
+
+  /* searchbar */
+  .searchWrapper {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    min-width: 50%;
+    height: 60px;
+    border: 5px solid blue;
+    align-items: center;
+    /* margin-right: 25%; */
+  }
+
+  input {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    /* border: 5px solid red; */
+    justify-content: space-around;
+  }
+
+  /* end of search bar */
+
+  .settingsDesktop {
+    display: flex;
+    flex-direction: row;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 150px;
+    /* height: auto; */
+    border: 5px purple solid;
+    margin: 0;
+    align-content: space-between;
+    justify-items: center;
+    padding: 5px;
+  }
+
+  .settingsMobile {
+    display: none;
+  }
+
+  .settingGear {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    border: 5px red solid;
+    align-items: center;
+  }
+  .SettinginScribble {
+    display: flex;
+    flex-direction: row;
+    font-size: medium;
+    width: 150px;
+    /* height: auto; */
+    border: 5px yellow solid;
+    margin: 0;
+    align-content: space-between;
+    justify-items: center;
+    padding: 5px;
+  }
+
+  .dropDownMenuDesktop {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* height: fit-content; */
+    border: 5px solid red;
+  }
+
+  .dropDownMenuMobile {
+    display: none;
+  }
+  .dropDwonMenu {
+    display: flex;
+    flex-direction: row;
+    border: 5px blueviolet solid;
+  }
+}
+/* End of desktop view */
+
+/* ***************MOBILE VIEW************** */
+@media (max-width: 701px) {
+  .headerDesktopView {
+    display: none;
+  }
+
+  .headerMobileView {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    /* justify-content: center; */
+    /* justify-items: center; */
+
+    position: relative;
+    background-color: FF742B;
+    border: 5px yellowgreen solid;
+    padding: 4px;
+  }
+
+  .Hpic {
+    padding: 0;
+    /* height: ; */
+    width: 42px;
+    /* border: green solid 5px; */
+    /* margin: 20px; */
+  }
+  h2 {
+    display: flex;
+    font-size: medium;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    border: 5px black solid;
+    margin: 0;
+    align-content: center;
+    padding: 5px;
+  }
+
+  .SearchHackerNews {
+    display: block;
+    font-size: 18px;
+    font-style: normal;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* font-weight: bold; */
+    width: 170px;
+    height: fit-content;
+    border: 5px purple solid;
+    margin: 0;
+    justify-content: center;
+    align-items: left;
+    align-content: left;
+    padding: 5.25px;
+    margin-right: auto;
+  }
+
+  .searchWrapper {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    min-width: 50%;
+    height: fit-content;
+    border: 5px solid blue;
+    justify-items: center;
+    align-self: center;
+    align-items: center;
+  }
+
+  input {
+    display: flex;
+    border: 5px green solid;
+    flex-wrap: wrap;
+    max-width: 80%;
+    min-width: 50%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .settingsMobile {
+    display: flex;
+    flex-direction: row;
+    font-size: medium;
+    font-weight: bold;
+    width: 150px;
+    /* height: auto; */
+    border: 5px purple solid;
+    margin: 0;
+    align-content: space-between;
+    justify-items: center;
+    padding: 5px;
+  }
+
+  .settingGear {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    border: 5px red solid;
+    align-items: center;
+  }
+  .SettinginScribble {
+    display: flex;
+    flex-direction: row;
+    font-size: medium;
+    font-weight: bold;
+    width: 150px;
+    /* height: auto; */
+    border: 5px yellow solid;
+    margin: 0;
+    align-content: space-between;
+    justify-items: center;
+    padding: 5px;
+  }
+
+  .dropDownMenuMobile {
+    display: flex;
+    font-weight: bold;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    /* border: 5px solid red; */
+  }
+}
+
+/* end of Mobile View */
+
+input {
+  font-size: 1 rem;
+}
+
+.ListLi {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  border: 5px solid red;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 0.25 rem;
+  margin-top: 1rem;
+}
+
+.card > .Title {
+  margin: 12rem;
+}
+
+.card > .Url {
+  margin: 12rem;
+  color: #777;
+}
+
+.hide {
+  display: none;
+}
+
+.pageTab {
+  list-style: none;
+  list-style-position: inside;
+  list-style-type: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0;
+  /* border: 5px solid purple; */
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-around;
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  /* border: 5px solid purple; */
+}
+
+.footer_ul {
+  list-style: none;
+  list-style-position: inside;
+  text-align: center;
+  display: flex;
+  width: fit-content;
+  /* justify-content: center; */
+  align-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 0;
+  /* border: 5px solid purple; */
+}
+
+/* li{
+  border: 5px solid yellow;
+
+} */
