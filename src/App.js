@@ -43,8 +43,11 @@ function App() {
           
           <div class="KaitlandSearchBar">
             {/* added this line here */}
-            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" onChange={handleInput} />
-
+            {/* <input type="Search" id="search" placeholder="Search stories by title, URL, or author" onChange={handleInput} /> */}
+            <SearchBar
+              handleChange={handleInput}
+              placeholder="Search stories by title, url, or author"
+            />
             {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -118,7 +121,7 @@ function App() {
 
           <div class="KaitlandSearchBar">
             {/* Kailand's SearchBar */}
-            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" onChange={handleInput} />
+            {/* <input type="Search" id="search" placeholder="Search stories by title, URL, or author" onChange={handleInput} /> */}
             <SearchBar
               handleChange={handleInput}
               placeholder="Search stories by title, url, or author"
