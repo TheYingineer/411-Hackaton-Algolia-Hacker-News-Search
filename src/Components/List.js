@@ -8,9 +8,9 @@ function List({ news, inputText }) {
       return element;
     } else {
       return (
-        element.title.toLowerCase().includes(inputText) 
-        // element.url.toLowerCase().includes(inputText) ||
-        // element.author.toLowerCase().includes(inputText)
+        element.title.toLowerCase().includes(inputText) ||
+        element.url.toLowerCase().includes(inputText) ||
+        element.author.toLowerCase().includes(inputText)
       );
     }
   });

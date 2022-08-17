@@ -118,6 +118,7 @@ function App() {
 
           <div class="KaitlandSearchBar">
             {/* Kailand's SearchBar */}
+            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" onChange={handleInput} />
             <SearchBar
               handleChange={handleInput}
               placeholder="Search stories by title, url, or author"
