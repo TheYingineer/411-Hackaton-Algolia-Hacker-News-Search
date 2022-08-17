@@ -144,7 +144,7 @@ ol {
   .dropDwonMenu {
     display: flex;
     flex-direction: row;
-    /* border: 5px blueviolet solid; */
+    border: 5px blueviolet solid;
   }
   /* ************ End of Drop Down Menu Desktop******** */
 }
