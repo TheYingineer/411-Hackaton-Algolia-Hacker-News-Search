@@ -122,87 +122,40 @@ function App() {
         </header>
 
 
-        {/* Ying's dropdown menu --STILL IN PROGRESS*/}
-        <div class="dropDownMenuDesktop">
-          <div class="dropDownMenu">
-            <div class="dropDownMenuWord">Search</div>
 
-            <div class="dropdown">
-              <button class="dropbtn">Stories ^</button>
-              <div class="dropdown-content">
-                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All</a>
-                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=story">Stories</a>
-                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=comment">Comments</a>
-              </div>
-            </div>
 
-            <div class="dropDownMenuWord">by</div>
+        {/* ********************************************************************* */}
 
-            <div class="dropdown">
-              <button class="dropbtn">Dropdown</button>
-              <div class="dropdown-content">
-                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">Polularity</a>
-                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byDate&type=comment">Date</a>
-              </div>
-            </div>
+        {/* ********INSERT Dropdown menu DESKTOP HERE*/}
 
-            <div class="dropDownMenuWord">for</div>
 
-            <div class="dropdown">
-              <button class="dropbtn">All time</button>
-              <div class="dropdown-content">
-                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All time</a>
-                <a href="https://hn.algolia.com/?dateRange=last24h&page=0&prefix=false&query=&sort=byPopularity&type=all">Last 24hr</a>
-                <a href="https://hn.algolia.com/?dateRange=pastWeek&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Week</a>
-                <a href="https://hn.algolia.com/?dateRange=pastMonth&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Month</a>
-                <a href="https://hn.algolia.com/?dateRange=pastYear&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Year</a>
-                <a href="">Custom Range</a>
-              </div>
-            </div>
-          </div>
-          <div class="searchResult">29,591,950 results (0.005 seconds)</div>
-        </div>
-        {/* End of Ying's Dropdown Menu ****NEED TO FIX IT */}
 
-        {/* Ying's Dropdown menu Mobile */}
-        <div class="dropDownMenuMobile">
-          <div class="dropDownMenu">
-            <p>Search </p>
 
-            <div class="dropdown">
-              <button class="dropbtn">Stories ^</button>
-              <div class="dropdown-content">
-                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All</a>
-                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=story">Stories</a>
-                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=comment">Comments</a>
-              </div>
-            </div>
 
-            <p>by </p>
-            <div class="dropdown">
-              <button class="dropbtn">Popularity</button>
-              <div class="dropdown-content">
-                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">Polularity</a>
-                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byDate&type=comment">Date</a>
-              </div>
-            </div>
 
-            <p>for</p>
-            <div class="dropdown">
-              <button class="dropbtn">All time</button>
-              <div class="dropdown-content">
-                <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All time</a>
-                <a href="https://hn.algolia.com/?dateRange=last24h&page=0&prefix=false&query=&sort=byPopularity&type=all">Last 24hr</a>
-                <a href="https://hn.algolia.com/?dateRange=pastWeek&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Week</a>
-                <a href="https://hn.algolia.com/?dateRange=pastMonth&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Month</a>
-                <a href="https://hn.algolia.com/?dateRange=pastYear&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Year</a>
-                <a href="">Custom Range</a>
 
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* End of Ying's Dropdown Menu Mobile ****NEED TO FIX IT */}
+
+        <div class="searchResult">29,591,950 results (0.005 seconds)</div>
+
+
+        {/* ********END OF Dropdown menu DESKTOP HERE*/}
+
+
+        {/* ********************************************************************* */}
+
+
+
+        {/* ********INSERT Dropdown menu Mobile HERE*/}
+
+
+
+
+
+
+
+
+
+        {/* ********END OF Dropdown menu Mobile */}
 
 
         <List class="ListLi" news={news} inputText={inputText} />
