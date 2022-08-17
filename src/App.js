@@ -10,22 +10,6 @@ function App() {
 
   // const [filtered, setfiltered] = useState([]);
 
-  // Ying's in progress continue of the searchBar in JS format
-
-  // const authorCardTemplate = document.querySelector("[data-author-template]");
-  // fetch("http://hn.algolia.com/api/v1/search?tags=front_page").then(res => res.json()).then(data => {
-  //   data.forEach(author => {
-  //     const card = authorCardTemplate.textContent.cloneNode(true).children[0]
-  //     const author = card.querySelector("[Author]")
-  //     const title = card.querySelector("[data-Title]")
-  //     const url = card.querySelector("[data-Url]")
-
-  //     console.log(author)
-  //   })
-
-  //End of Ying's progress
-
-
   useEffect(() => {
     fetch("http://hn.algolia.com/api/v1/search?tags=front_page") //api address
       .then((res) => res.json())
@@ -53,11 +37,12 @@ function App() {
           {/* <h2>Search Hacker News</h2> */}
 
           {/* Kailand's SearchBar */}
-          {/* <SearchBar
-            handleChange={handleInput}
-            placeholder="Search stories by title, url, or author"
-          />
-          <svg
+          <div class="KaitlandSearchBar">
+            {/* added this line here */}
+            <SearchBar
+              handleChange={handleInput}
+              placeholder="Search stories by title, url, or author" />
+            {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -71,38 +56,8 @@ function App() {
             <circle cx="12" cy="12" r="3"></circle>
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
           </svg> */}
-
-          {/* End of Kaitland's SearchBar */}
-
-
-          {/* Ying's Search Bar */}
-
-          <div className="searchWrapper">
-            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" handleChange={handleInput} />
           </div>
-
-          <div className="user-cards"></div>
-
-          <template data-author-template>
-            <div className="card">
-              <div className="Author" data-Author>Author</div>
-            </div>
-          </template>
-
-          <template data-Title-template>
-            <div className="card">
-              <div className="Title" data-Title>Title</div>
-            </div>
-          </template>
-
-          <template data-Url-template>
-            <div className="card">
-              <div className="Url" data-Url>Url</div>
-            </div>
-          </template>
-
-          {/* End of Ying's Search Bar ---NOT DONE YET!! NEED TO COME BACK AND FINISH IT */}
-
+          {/* End of Kaitland's SearchBar */}
 
           {/* <h2>Settings</h2> */}
 
@@ -121,38 +76,38 @@ function App() {
           </div>
           {/* End of Setting Tab */}
         </header>
-        {/* End of Desktop View */}
 
-        {/* Mobile view */}
+        {/********** End of Desktop View ***********/}
+
+
+
+        {/****************Mobile view************** */}
         <header class="headerMobileView">
           <img class="Hpic" src="https://hn.algolia.com/packs/media/images/logo-hn-search-a822432b.png" alt="Hpic" />
 
-          {/* Ying's Search Bar */}
-          <div className="searchWrapper">
-            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" width={200} />
+          <div class="KaitlandSearchBar">
+            {/* Kailand's SearchBar */}
+            <SearchBar
+              handleChange={handleInput}
+              placeholder="Search stories by title, url, or author"
+            />
+            {/* <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg> */}
           </div>
 
-          <div className="user-cards"></div>
-
-          <template data-author-template>
-            <div className="card">
-              <div className="Author" data-Author>Author</div>
-            </div>
-          </template>
-
-          <template data-Title-template>
-            <div className="card">
-              <div className="Title" data-Title>Title</div>
-            </div>
-          </template>
-
-          <template data-Url-template>
-            <div className="card">
-              <div className="Url" data-Url>Url</div>
-            </div>
-          </template>
-
-          {/* End of Ying's Search Bar ---NOT DONE YET!! NEED TO COME BACK AND FINISH IT */}
+          {/* End of Kaitland's SearchBar */}
 
 
           {/* <h2>Settings</h2> */}
@@ -173,8 +128,8 @@ function App() {
             <div class="dropDownMenuWord">Search</div>
 
             <div class="dropdown">
-              <button onclick="myFunction()" class="dropbtn">Stories ^</button>
-              <div id="myDropdown" class="dropdown-content">
+              <button class="dropbtn">Stories ^</button>
+              <div class="dropdown-content">
                 <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All</a>
                 <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=story">Stories</a>
                 <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=comment">Comments</a>
@@ -182,18 +137,20 @@ function App() {
             </div>
 
             <div class="dropDownMenuWord">by</div>
+
             <div class="dropdown">
-              <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-              <div id="myDropdown" class="dropdown-content">
+              <button class="dropbtn">Dropdown</button>
+              <div class="dropdown-content">
                 <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">Polularity</a>
                 <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byDate&type=comment">Date</a>
               </div>
             </div>
 
             <div class="dropDownMenuWord">for</div>
+
             <div class="dropdown">
-              <button onclick="myFunction()" class="dropbtn">All time</button>
-              <div id="myDropdown" class="dropdown-content">
+              <button class="dropbtn">All time</button>
+              <div class="dropdown-content">
                 <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All time</a>
                 <a href="https://hn.algolia.com/?dateRange=last24h&page=0&prefix=false&query=&sort=byPopularity&type=all">Last 24hr</a>
                 <a href="https://hn.algolia.com/?dateRange=pastWeek&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Week</a>
@@ -213,8 +170,8 @@ function App() {
             <p>Search </p>
 
             <div class="dropdown">
-              <button onclick="myFunction()" class="dropbtn">Stories ^</button>
-              <div id="myDropdown" class="dropdown-content">
+              <button class="dropbtn">Stories ^</button>
+              <div class="dropdown-content">
                 <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All</a>
                 <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=story">Stories</a>
                 <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=comment">Comments</a>
@@ -223,31 +180,22 @@ function App() {
 
             <p>by </p>
             <div class="dropdown">
-              <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-              <div id="myDropdown" class="dropdown-content">
-
+              <button class="dropbtn">Popularity</button>
+              <div class="dropdown-content">
                 <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">Polularity</a>
-
                 <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byDate&type=comment">Date</a>
-
               </div>
             </div>
 
             <p>for</p>
             <div class="dropdown">
-              <button onclick="myFunction()" class="dropbtn">All time</button>
-              <div id="myDropdown" class="dropdown-content">
-
+              <button class="dropbtn">All time</button>
+              <div class="dropdown-content">
                 <a href="https://hn.algolia.com/?dateRange=all&page=0&prefix=false&query=&sort=byPopularity&type=all">All time</a>
-
                 <a href="https://hn.algolia.com/?dateRange=last24h&page=0&prefix=false&query=&sort=byPopularity&type=all">Last 24hr</a>
-
                 <a href="https://hn.algolia.com/?dateRange=pastWeek&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Week</a>
-
                 <a href="https://hn.algolia.com/?dateRange=pastMonth&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Month</a>
-
                 <a href="https://hn.algolia.com/?dateRange=pastYear&page=0&prefix=false&query=&sort=byPopularity&type=all">Past Year</a>
-
                 <a href="">Custom Range</a>
 
               </div>
