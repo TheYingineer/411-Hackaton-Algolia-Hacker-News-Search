@@ -6,15 +6,14 @@ import List from "./Components/List";
 function App() {
   const [news, setNews] = useState([]);
   const [inputText, setInputText] = useState("");
+  const [sort, setSort] = useState("Popularity")
 
-  // const [filtered, setfiltered] = useState([]);
-
+ 
   useEffect(() => {
     fetch("http://hn.algolia.com/api/v1/search?tags=front_page") //api address
       .then((res) => res.json())
       .then((data) => {
         setNews(data.hits);
-        console.log(data.hits);
       });
   }, []);
 
@@ -22,6 +21,10 @@ function App() {
     let lower = e.target.value.toLowerCase();
     setInputText(lower);
   };
+  
+  const handleSort = (e) => {
+    setSort(e.target.value)
+  }
 
   return (
     <div className={`App`}>
@@ -41,11 +44,12 @@ function App() {
 
           {/* Kailand's SearchBar */}
           
-          <div class="KaitlandSearchBar">
+          <div class="KaitlandSearchBar"> 
             {/* added this line here */}
             {/* <input type="Search" id="search" placeholder="Search stories by title, URL, or author" onChange={handleInput} /> */}
             <SearchBar
               handleChange={handleInput}
+              handleSort = {handleSort}
               placeholder="Search stories by title, url, or author"
             />
             {/* <svg
@@ -189,7 +193,7 @@ function App() {
 
         {/* ********END OF Dropdown menu Mobile */}
 
-        <List class="ListLi" news={news} inputText={inputText} />
+        <List class="ListLi" news={news} inputText={inputText} sortType={sort}/>
 
         {/* Ying's page's search */}
         <ul class="pageTab">

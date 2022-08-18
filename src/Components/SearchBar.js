@@ -1,7 +1,7 @@
 import React from "react";
 import "./SearchBar.css";
 
-function SearchBar({ handleChange, placeholder }) {
+function SearchBar({ handleChange, handleSort, placeholder }) {
   return (
     <div ClassName="Search">
       <div ClassName="searchInputs">
@@ -21,7 +21,7 @@ function SearchBar({ handleChange, placeholder }) {
           <option value="Comments">Comments</option>
         </select>
         by
-        <select>
+        <select onChange={handleSort}>
           <option value="Popularity">Popularity</option>
           <option value="Date">Date</option>
         </select>
