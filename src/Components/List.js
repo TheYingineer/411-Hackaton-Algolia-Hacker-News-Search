@@ -1,6 +1,9 @@
 import { React } from "react";
 import moment from "moment";
-moment().format();
+
+moment().format()
+
+
 
 function List({ news, inputText }) {
   const filtered = news.filter((element) => {
@@ -25,12 +28,10 @@ function List({ news, inputText }) {
             <div className="url">({article.url})</div>
           </h2>
           <p>
-            {article.points} points | {article.author} |{" "}
-            {moment(
-              article.created_at.replace(/\D/g, ""),
-              "YYYYMMDDhhmmss"
-            ).fromNow()}{" "}
-            | {article.num_comments} comments
+
+            {article.points} points | {article.author} |{moment(article.created_at.substring(0,10), "YYYY MM DD").fromNow()} |{" "}
+            {article.num_comments} comments
+
           </p>
         </li>
       ))}

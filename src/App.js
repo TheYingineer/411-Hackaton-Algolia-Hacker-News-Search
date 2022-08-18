@@ -78,7 +78,7 @@ function App() {
           {/* Ying's Search Bar */}
 
           <div className="searchWrapper">
-            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" handleChange={handleInput} />
+            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" onChange={handleInput} />
           </div>
 
           <div className="user-cards"></div>
@@ -129,7 +129,7 @@ function App() {
 
           {/* Ying's Search Bar */}
           <div className="searchWrapper">
-            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" width={200} />
+            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" width={200} handleChange={handleInput}/>
           </div>
 
           <div className="user-cards"></div>
@@ -300,7 +300,7 @@ function App() {
 
           <li class="pageItem">
             <form>
-              <button onclick="https://hn.algolia.com/?dateRange=all&page=6&prefix=true&query=&sort=byPopularity&type=story">>></button>
+              <button onclick="https://hn.algolia.com/?dateRange=all&page=6&prefix=true&query=&sort=byPopularity&type=story">7</button>
             </form>
           </li>
         </ul>
