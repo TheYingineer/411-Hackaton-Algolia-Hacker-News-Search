@@ -10,7 +10,11 @@ function List({ news, inputText }) {
     if (inputText === "") {
       return element;
     } else {
-      return element.title.toLowerCase().includes(inputText);
+      return (
+        element.title.toLowerCase().includes(inputText) ||
+        element.url.toLowerCase().includes(inputText) ||
+        element.author.toLowerCase().includes(inputText)
+      );
     }
   });
 
@@ -19,15 +23,17 @@ function List({ news, inputText }) {
       {filtered.map((article, index) => (
         <li key={article.objectID + index}>
           <h2>
-            <a
+          <a
               className="title"
               href={`https://news.ycombinator.com/item?id=${article.objectID}`}
             >
               {article.title}
             </a>
+            
             <div className="url">({article.url})</div>
           </h2>
           <p>
+
 
             {article.points} points | {article.author} |{moment(article.created_at.substring(0,10), "YYYY MM DD").fromNow()} |{" "}
             {article.num_comments} comments
