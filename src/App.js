@@ -6,15 +6,14 @@ import List from "./Components/List";
 function App() {
   const [news, setNews] = useState([]);
   const [inputText, setInputText] = useState("");
+  const [sort, setSort] = useState("Popularity")
 
-  // const [filtered, setfiltered] = useState([]);
-
+ 
   useEffect(() => {
     fetch("http://hn.algolia.com/api/v1/search?tags=front_page") //api address
       .then((res) => res.json())
       .then((data) => {
         setNews(data.hits);
-        console.log(data.hits);
       });
   }, []);
 
@@ -22,6 +21,10 @@ function App() {
     let lower = e.target.value.toLowerCase();
     setInputText(lower);
   };
+  
+  const handleSort = (e) => {
+    setSort(e.target.value)
+  }
 
   return (
     <div className={`App`}>
@@ -41,11 +44,12 @@ function App() {
 
           {/* Kailand's SearchBar */}
           
-          <div class="KaitlandSearchBar">
+          <div class="KaitlandSearchBar"> 
             {/* added this line here */}
             {/* <input type="Search" id="search" placeholder="Search stories by title, URL, or author" onChange={handleInput} /> */}
             <SearchBar
               handleChange={handleInput}
+              handleSort = {handleSort}
               placeholder="Search stories by title, url, or author"
             />
             {/* <svg
@@ -62,6 +66,7 @@ function App() {
             <circle cx="12" cy="12" r="3"></circle>
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
           </svg> */}
+
           </div>
           {/* End of Kaitland's SearchBar */}
 
@@ -119,6 +124,11 @@ function App() {
             alt="Hpic"
           />
 
+
+          {/* Ying's Search Bar */}
+          {/* <div className="searchWrapper">
+            <input type="Search" id="search" placeholder="Search stories by title, URL, or author" width={200} handleChange={handleInput}/> */}
+
           <div class="KaitlandSearchBar">
             {/* Kailand's SearchBar */}
             {/* <input type="Search" id="search" placeholder="Search stories by title, URL, or author" onChange={handleInput} /> */}
@@ -140,6 +150,7 @@ function App() {
             <circle cx="12" cy="12" r="3"></circle>
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
           </svg> */}
+
           </div>
 
           {/* End of Kaitland's SearchBar */}
@@ -182,7 +193,7 @@ function App() {
 
         {/* ********END OF Dropdown menu Mobile */}
 
-        <List class="ListLi" news={news} inputText={inputText} />
+        <List class="ListLi" news={news} inputText={inputText} sortType={sort}/>
 
         {/* Ying's page's search */}
         <ul class="pageTab">
@@ -252,11 +263,7 @@ function App() {
             </form>
           </li>
 
-          <li class="pageItem">
-            <form>
-              <button onclick="https://hn.algolia.com/?dateRange=all&page=6&prefix=true&query=&sort=byPopularity&type=story"></button>
-            </form>
-          </li>
+
         </ul>
 
         {/* End of Page search */}
